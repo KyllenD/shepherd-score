@@ -90,7 +90,7 @@ class Molecule:
         pharm_vecs : Optional[np.ndarray] (P,3) Unit vectors relative to anchor positions of pharmacophores.
         """
         self.mol = mol
-        self.atom_pos = Chem.RemoveHs(mol).GetConformer().GetPositions()
+        self.atom_pos = Chem.RemoveHs(mol,sanitize=False).GetConformer().GetPositions()
         if surface_points is None:
             self.num_surf_points = num_surf_points
         else:
